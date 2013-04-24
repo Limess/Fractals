@@ -6,11 +6,11 @@ from PIL import ImageDraw
 
 ## Image Properties
 imgx = 600; imgy = 600 # dimensions of canvas
-image = Image.new("L", (imgx, imgy), 255) # greyscale image white canvas
+image = Image.new("RGB", (imgx, imgy), (255,255,255)) # greyscale image white canvas
 pix = image.load()
 draw = ImageDraw.Draw(image)
 
-maxIteration = 1000000 # number of iterations
+maxIteration = 2500 # number of iterations
 
 ## IFS definition of Sierpinski Gasket
 mat=[[0.5,0.0,0.0,0.5,0,0,1/3], # S1
@@ -49,10 +49,10 @@ for i in range(maxIteration):
     dx[i] = imgx-x[i] 
     dy[i] = imgx-y[i]
     # fills the corresponding pixel black
-    pix[dx[i], dy[i]] = 0
+    pix[dx[i], dy[i]] = (255,0,0)
 
     # draws lines between points at each iteration
-##    if i >=1:
-##       draw.line([(dx[i-1], dy[i-1]), (dx[i], dy[i])], 0)
+    #if i >=1:
+       #draw.line([(dx[i-1], dy[i-1]), (dx[i], dy[i])], 0)
 
-image.save("SierpinskiGasket.png", "PNG")
+image.save("SierpinskiGasket" + str(maxIteration) + "iterations.png", "PNG")

@@ -4,13 +4,13 @@ from PIL import Image
 
 ## Image Properties
 imgx = 600; imgy = 600 # dimensions of canvas
-picture = Image.open("image.jpg") # loads the chosen image file
+picture = Image.open("image.png") # loads the chosen image file
 image1 = picture.resize((imgx,imgy)) # resizes the image to the canvas dimensions
 image1 = image1.convert("1") # converts the image to black and white
 image2 = Image.new("L", (imgx, imgy), 255) # creates blank canvas
 pix2 = image2.load() # loads pixels of blank canvas for editing
 
-maxIteration = 1 # number of iterations
+maxIteration = 2 # number of iterations
 
 ## IFS definition of Sierpinski Gasket
 mat=[[0.5,0.0,0.0,0.5,0,0,1/3],         # S1
